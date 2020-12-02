@@ -37,9 +37,21 @@ To check for differences:
 ```
 yarn tsm src/ --listDifferent
 ```
-(Thanks for sharing about that listDifferent switch, [Spencer Miskoviak](https://skovy.dev), [Scovy](https://github.com/skovy))
+(Thanks for sharing about that listDifferent switch, [Spencer Miskoviak](https://skovy.dev), [Scovy](https://github.com/skovy), he's no longer on [Medium](https://medium.com/rubber-ducking/generating-typescript-definitions-for-css-modules-using-sass-461e33623ec2))
+### Added react-bootstrap && Material UI core
+```
 
-### Added react-bootstrap
+// >> yarn add react-bootstrap 
 
-yarn add react-bootstrap 
+// >> yarn add @material-ui/core
+```
 
+
+### Added Redux for state management
+
+```
+// >> yarn add redux
+// >> yarn add react-redux
+// >> yarn add @types/react-redux
+// >> yarn add prop-types-extra
+```
