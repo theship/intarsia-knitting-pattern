@@ -24,10 +24,11 @@ const ColorPicker: React.FC = () => {
 
             {showColorPicker && (
                 <SketchPicker
-                    onChange={updatedColor => setColor(updatedColor)}
+                    onChange={updatedColor => setColor(updatedColor.hex)}
                     color={color}
                 />
             )}
+            <h3>Current color: {color}</h3>
         </div>
     );
 }
