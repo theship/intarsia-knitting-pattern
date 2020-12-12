@@ -1,35 +1,22 @@
-import React, {useState, useEffect} from "react";
+import React from 'react';
+import { v4 as uuid } from 'uuid';
+import { ColorPickerContainer } from "./ColorPickerContainer";
 import { SketchPicker } from "react-color";
 
-interface IStateColor {
-    setColor: string,
-}
-interface IStateShowPicker {
-    setShowColorPicker: boolean,
-}
-
-const ColorPicker: React.FC = () => {
-    const [color, setColor] = useState<IStateColor | string>("#DB1374")
-    const [showColorPicker, setShowColorPicker] = useState<IStateShowPicker | boolean>(false)
-
-    useEffect(() => {
-        setColor(color)
-    }, [color])
-
+function ColorPickerComponent() {
+    const picker = ColorPickerContainer.useContainer();
     return (
-        <div className="ColorPicker">
-            <button onClick={() => setShowColorPicker(showColorPicker => !showColorPicker)}>
-                {showColorPicker ? 'Close' : 'Color'}
-            </button>
-
-            {showColorPicker && (
+        <div>
+            <p>Hello! {picker.color}</p>
+            <div>
                 <SketchPicker
-                    onChange={updatedColor => setColor(updatedColor.hex)}
-                    color={color}
-                />
-            )}
-            <h3>Current color: {color}</h3>
+                    key={uuid()}
+                    color={picker.color}
+                    onChange={picker.handleOnColorChange} />
+                <button onClick={picker.updateColorName}>Save</button>
+            </div>
         </div>
     );
 }
-export default ColorPicker;
+
+export default ColorPickerComponent;

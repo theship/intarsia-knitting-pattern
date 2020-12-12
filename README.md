@@ -55,3 +55,28 @@ yarn tsm src/ --listDifferent
 // >> yarn add @types/react-redux
 // >> yarn add prop-types-extra
 ```
+
+## Added unstated-x
+
+```
+// >> yarn add unstated-x
+```
+
+https://www.npmjs.com/package/unstated-x
+
+## Added uuid
+
+```
+// >> yarn add uuid
+```
+
+https://www.npmjs.com/package/uuid
+
+### Added react-color for Sketcher style color picker
+
+[React Color](http://casesandberg.github.io/react-color/)
+
+
+A Collection of Color Pickers from Sketch, Photoshop, Chrome, Github, Twitter, Material Design & more
+
+

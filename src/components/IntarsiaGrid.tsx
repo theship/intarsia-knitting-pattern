@@ -1,16 +1,9 @@
 import * as React from "react";
+import { ColorPickerContainer } from "./ColorPickerContainer";
 import '../styles/css/styles.css';
-import { Container, Row, Col } from 'react-bootstrap';
-// import Container from "react-bootstrap/Container";
-// import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
+import { Row, Col } from 'react-bootstrap';
+const BSContainer = React.lazy(() => import('react-bootstrap/Container'));
 
-
-/* // Generic Input Type
-function wrapInArray<Type>(input: Type): Type[] {
-  return [input];
-}
- */
 const
   gridDim = {
     x: 40,
@@ -36,6 +29,7 @@ function GridRow(props) {
   )
 }
 
+
 function Cell(props) {
 
   const cellStyles = {
@@ -49,8 +43,11 @@ function Cell(props) {
   }
 
   function handleClick(event) {
+/*     const Picker = ColorPickerContainer.useContainer();
+    const activeColor = Picker.color;
+ */
     var ts = event.currentTarget.style
-    ts.backgroundColor = (ts.backgroundColor === 'white' ? 'black' : 'white')
+    ts.backgroundColor = (ts.backgroundColor === 'white' ? { activeColor } : 'white')
   }
 
   return (
@@ -85,22 +82,11 @@ class IntarsiaGrid extends React.Component {
 
   render() {
     return (
-      <Container>
-        {this.state.grid.map(row => <GridRow row={row} />)}
-      </Container>
+        <BSContainer>
+          {this.state.grid.map(row => <GridRow row={row} />)}
+        </BSContainer>
     );
   }
-/*   SumptinGood: String = "";
-
-  tellMeSometinGood = (SumptinGood) => {
-    console.log("doSomething: ", SumptinGood);
-  }
-
-  render() {
-    return (<button onClick={() => this.tellMeSometinGood("Heh...")}>Click Me</button>)
-  }
- */
-
 }
 
 export default IntarsiaGrid;
