@@ -19,17 +19,13 @@ const defaultMargin = {
 };
 
 export default function generateCells({ margin = defaultMargin }: CellProps) {
-    const numColumns = 40
-    const numRows = 29
-    const columnWidth = 15
-    const rowHeight = 10
+    const numColumns = 40;
+    const numRows = 29;
+    const columnWidth = 15;
+    const rowHeight = 10;
+    const id = 'genCell';
     return (
-        <>
-            return (
-                <React.Fragment key={id}>
-                    
-                </React.Fragment>
-            );
-        </>
+        <React.Fragment key={id}>
+        </React.Fragment>
     )
 }
