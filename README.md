@@ -69,7 +69,12 @@ https://www.npmjs.com/package/uuid
 
 [React Color](http://casesandberg.github.io/react-color/)
 
-
 A Collection of Color Pickers from Sketch, Photoshop, Chrome, Github, Twitter, Material Design & more
 
+### Versioning as follows:
+
+```
+// >> git tag -a v0.2 -m "unstated-next across components"
+// >> git push origin --tags
+```
 
