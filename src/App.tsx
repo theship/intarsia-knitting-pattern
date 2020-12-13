@@ -1,7 +1,8 @@
 import * as React from "react"
-import IntarsiaGrid from "./components/IntarsiaGrid"
+import { IntarsiaGridContainer } from "./components/IntarsiaGridContainer";
+import IntarsiaGridComponent from "./components/IntarsiaGridComponent"
 import { ColorPickerContainer } from "./components/ColorPickerContainer";
-import ColorPicker from "./components/ColorPicker"
+import ColorPickerComponent from "./components/ColorPickerComponent"
 import DrawApp from "./components/DrawApp"
 
 export default function App() {
@@ -10,8 +11,10 @@ export default function App() {
     <React.Suspense fallback="Things are loading...">
           <div className="App">
             <ColorPickerContainer.Provider>
-              <IntarsiaGrid />
-              <ColorPicker />
+              <IntarsiaGridContainer.Provider>
+                <IntarsiaGridComponent />
+              </IntarsiaGridContainer.Provider>
+              <ColorPickerComponent />
               <DrawApp />
             </ColorPickerContainer.Provider>
           </div>

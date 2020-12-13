@@ -7,7 +7,7 @@ function ColorPickerComponent() {
     const picker = ColorPickerContainer.useContainer();
     return (
         <div>
-            <p>Hello! {picker.color}</p>
+            <p>Current color: {picker.color}</p>
             <div>
                 <SketchPicker
                     key={uuid()}

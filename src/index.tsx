@@ -2,7 +2,9 @@ import * as React from "react";
 import { render } from "react-dom";
 import App from "./App";
 
-export * from './components/ColorPicker';
+/* export * from './components/ColorPickerComponent';
+export * from './components/IntarsiaGridComponent';
+ */
 
 const Root = () => (
     <App />
