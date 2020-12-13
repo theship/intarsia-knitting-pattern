@@ -5,11 +5,11 @@ const useColorPicker = () => {
     const [color, setColor] = useState("#000");
     const [colorname, setName] = useState("white");
 
-    const handleOnColorChange = event => {
+    const handleOnColorChange = (event:any) => {
         setColor(event.hex);
     };
 
-    const updateColorName = event => {
+    const updateColorName = (event: any) => {
         event.preventDefault();
         setName(color);
     };

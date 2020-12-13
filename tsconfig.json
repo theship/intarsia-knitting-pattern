@@ -24,7 +24,7 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "./src/**/*.ts"
+    "./src/**/*.ts", "src/components/ColorPickerContainer.tsx", "src/components/GenerateCells.tsx"
   ],
   "exclude": [
     "node_modules",

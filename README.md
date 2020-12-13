@@ -47,23 +47,16 @@ yarn tsm src/ --listDifferent
 ```
 
 
-### Added Redux for state management
+### Added (redux and) unstated-next for state management
 
 ```
 // >> yarn add redux
 // >> yarn add react-redux
 // >> yarn add @types/react-redux
 // >> yarn add prop-types-extra
-```
-
-## Added unstated-x
+// >> yarn add unstated-next
 
 ```
-// >> yarn add unstated-x
-```
-
-https://www.npmjs.com/package/unstated-x
-
 ## Added uuid
 
 ```

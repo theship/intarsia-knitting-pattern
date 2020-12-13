@@ -1,11 +1,10 @@
 import * as React from "react";
 import '../styles/css/styles.css';
-import { Container, Row } from 'react-bootstrap';
-import { ColorPickerContainer } from "./ColorPickerContainer";
-
+import { Container, Row, Col } from 'react-bootstrap';
 // import Container from "react-bootstrap/Container";
 // import Row from "react-bootstrap/Row";
 // import Col from "react-bootstrap/Col";
+
 
 /* // Generic Input Type
 function wrapInArray<Type>(input: Type): Type[] {
@@ -48,13 +47,10 @@ function Cell(props) {
     margin: '0',
     marginLeft: '-1px'
   }
-  const picker = ColorPickerContainer.useContainer();
 
-  function handleClick(event:any) {
-
-    var targetStyle = event.currentTarget.style
-    
-    targetStyle.backgroundColor = (targetStyle.backgroundColor === 'white' ? picker.color : 'white')
+  function handleClick(event) {
+    var ts = event.currentTarget.style
+    ts.backgroundColor = (ts.backgroundColor === 'white' ? 'black' : 'white')
   }
 
   return (
