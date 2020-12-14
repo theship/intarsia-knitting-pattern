@@ -2,14 +2,9 @@ import React from 'react';
 import { IntarsiaGridContainer } from "./IntarsiaGridContainer";
 import { Container } from 'react-bootstrap';
 
-
 function IntarsiaGridComponent() {
     const gridContainer = IntarsiaGridContainer.useContainer();
-/* (property) Container<{ GridRow: (props: any) => JSX.Element; Cell: (props: any) => JSX.Element; }, void>.useContainer: () => {
-    GridRow: (props: any) => JSX.Element;
-    Cell: (props: any) => JSX.Element;
-}
- */
+
     function buildGrid() {
         var gridLayout = [];
         for (let i: number = 0; i < gridContainer.gridDim.x; i++) {

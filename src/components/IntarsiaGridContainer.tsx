@@ -1,5 +1,5 @@
-// import { useEffect, useRef, useState } from "react";
-import { createContainer } from 'unstated-next'
+/* import { useEffect, useRef, useState } from "react";
+ */import { createContainer } from 'unstated-next'
 import { ColorPickerContainer } from "./ColorPickerContainer";
 import { Row } from 'react-bootstrap';
 import '../styles/css/styles.css';
@@ -19,11 +19,10 @@ function GridRow(props) {
         margin: '0',
         marginBottom: '-8px',
         padding: '0'
-
     }
     return (
         <Row style={rowStyle}>
-            { props.row.map(id => <Cell id={String(id)} />)}
+            { props.row.map(id => <Cell id={String(id)} key={String(id)}  />)}
         </Row>
     )
 }
@@ -41,15 +40,22 @@ function Cell(props) {
     }
     const picker = ColorPickerContainer.useContainer();
 
-    function handleClick(event: any) {
+    function handleGridClick(event: any) {
         var targetStyle = event.currentTarget.style
         targetStyle.backgroundColor = (targetStyle.backgroundColor === 'white' ? picker.color : 'white')
     }
 
-    return (
+/*     const contextRef = useRef(null)
+    const [isDrawing, setIsDrawing] = useState(false)
+
+ */    return (
         <div
-            onClick={handleClick}
-            id={props.id}
+            key={props.id}
+            onClick={handleGridClick}
+/*             onMouseDown={startDrawing}
+            onMouseUp={finishDrawing}
+            onMouseMove={draw}
+ */            id={props.id}
             style={cellStyles}
         />
     );
