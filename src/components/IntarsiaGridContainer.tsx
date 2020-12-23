@@ -1,74 +1,75 @@
-/* import { useEffect, useRef, useState } from "react";
- */import { createContainer } from 'unstated-next'
+import React, { useState, SyntheticEvent, CSSProperties } from "react"
+import { createContainer, useContainer } from "unstated-next"
 import { ColorPickerContainer } from "./ColorPickerContainer";
-import { Row } from 'react-bootstrap';
-import '../styles/css/styles.css';
 
-const
-    gridDim = {
-        x: 40,
-        y: 29
-    },
-    cellDim = {
-        width: '30px',
-        height: '20px'
-    }
+import '../styles/css/styles.css'
 
-function GridRow(props) {
-    const rowStyle = {
-        margin: '0',
-        marginBottom: '-8px',
-        padding: '0'
+export type cellItem = {
+    id: string
+    className: string
+    style?: CSSProperties
+ }
+export interface MouseEvent {
+    target: HTMLInputElement;
+}
+
+
+function InitIntarsiaGrid() {
+
+    const [color, setColor] = useState("#fff");
+
+    const backgroundStyle = {
+        backgroundColor: color
+    } as CSSProperties;
+
+    return {
+        color,
+        backgroundStyle,
+        setColor
     }
+}
+
+var GridContainer = createContainer(InitIntarsiaGrid);
+
+function BuildIntarsiaGrid(){
+
+    var START = 1, END = 1160;
+    var useGridContainer = useContainer(GridContainer)
+
+    var cellArray = 
+        [...Array(1 + END - START).keys()].map((key: number, index: number) => <div
+            id={`cell-` + (key + 1)}
+            className="GridCell"
+            key={key + 1}
+            style={ useGridContainer.backgroundStyle }
+            onMouseEnter={ handleOnColorChange}
+        />)
+
+    const picker = ColorPickerContainer.useContainer();
+
+    function handleOnColorChange(event: SyntheticEvent) {
+        event.preventDefault();
+        if (event.target instanceof HTMLDivElement) {
+            event.target.style.backgroundColor = ('white' ? picker.color : 'white')
+        }
+    };
+
+        return (
+        <>  
+            <div className="intarsia-grid">
+                {cellArray}
+            </div>
+            <button >THE PROFESSOR</button>
+        </>
+    )
+}
+function IntarsiaGrid() {
+
     return (
-        <Row style={rowStyle}>
-            { props.row.map(id => <Cell id={String(id)} key={String(id)}  />)}
-        </Row>
+        <GridContainer.Provider>
+            <BuildIntarsiaGrid />
+        </GridContainer.Provider>
     )
 }
 
-function Cell(props) {
-
-    const cellStyles = {
-        backgroundColor: 'white',
-        width: cellDim.width,
-        height: cellDim.height,
-        border: "2px solid gray",
-        display: 'inline-block',
-        margin: '0',
-        marginLeft: '-1px'
-    }
-    const picker = ColorPickerContainer.useContainer();
-
-    function handleGridClick(event: any) {
-        var targetStyle = event.currentTarget.style
-        targetStyle.backgroundColor = (targetStyle.backgroundColor === 'white' ? picker.color : 'white')
-    }
-
-/*     const contextRef = useRef(null)
-    const [isDrawing, setIsDrawing] = useState(false)
-
- */    return (
-        <div
-            key={props.id}
-            onClick={handleGridClick}
-/*             onMouseDown={startDrawing}
-            onMouseUp={finishDrawing}
-            onMouseMove={draw}
- */            id={props.id}
-            style={cellStyles}
-        />
-    );
-}
-
-const useIntarsiaGrid = () => {
-
-    return {
-        gridDim,
-        cellDim,
-        GridRow,
-        Cell
-    };
-}
-
-export const IntarsiaGridContainer = createContainer(useIntarsiaGrid)
+export const IntarsiaGridContainer = createContainer(IntarsiaGrid);

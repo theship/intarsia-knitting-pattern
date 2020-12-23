@@ -11,4 +11,28 @@ body {
   margin: 0 auto;
 }
 
+.intarsia-grid {
+  max-width: 990px;
+  min-width: 990px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1rem;
+  margin: "0";
+  margin-bottom: "-8px";
+  padding: "0";
+}
+
+.GridCell {
+  background-color: white;
+  border: 2px solid gray;
+  width: 30px;
+  height: 20px;
+}
+
+.GridRow {
+  margin: "0";
+  margin-bottom: "-8px";
+  padding: "0";
+}
+
 /*# sourceMappingURL=styles.css.map */

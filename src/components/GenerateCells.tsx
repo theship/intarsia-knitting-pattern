@@ -1,7 +1,15 @@
 import React from 'react';
 
+
+const defaultMargin = {
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+};
+
 // export type CellProps = {
-export interface CellProps {
+export interface ICellProps {
     id: string;
     x: number;
     y: number;
@@ -11,14 +19,8 @@ export interface CellProps {
     rowHeight: number;
     margin?: typeof defaultMargin;
 }
-const defaultMargin = {
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-};
 
-export default function generateCells({ margin = defaultMargin }: CellProps) {
+export default function generateCells({ margin = defaultMargin }: ICellProps) {
     const numColumns = 40;
     const numRows = 29;
     const columnWidth = 15;
