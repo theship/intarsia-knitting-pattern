@@ -1,24 +1,19 @@
-body {
+#root {
     background: #f8f8ff;
     color: #0c0c0c;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: large;
     height: 100vh;
-    margin: 0;
     display: grid;
     place-items: center;
     max-width: 100vw;
     margin: 0 auto;
 }
 .intarsia-grid {
-        max-width: 990px;
-        min-width: 990px;
-display: flex;
-  flex-wrap: wrap;
-  margin: -1rem;
-    margin: '0';
-    margin-bottom: '-8px';
-    padding: '0';
+    max-width: 990px;
+    min-width: 990px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .GridCell {

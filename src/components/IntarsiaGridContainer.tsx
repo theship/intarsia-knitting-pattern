@@ -13,7 +13,6 @@ export interface MouseEvent {
     target: HTMLInputElement;
 }
 
-
 function InitIntarsiaGrid() {
 
     const [color, setColor] = useState("#fff");
@@ -35,6 +34,7 @@ function BuildIntarsiaGrid(){
 
     var START = 1, END = 1160;
     var useGridContainer = useContainer(GridContainer)
+    var isDoubleClicked:boolean = false;
 
     var cellArray = 
         [...Array(1 + END - START).keys()].map((key: number, index: number) => <div
@@ -42,19 +42,30 @@ function BuildIntarsiaGrid(){
             className="GridCell"
             key={key + 1}
             style={ useGridContainer.backgroundStyle }
-            onMouseEnter={ handleOnColorChange}
+            onMouseEnter={ handleOnMouseEnter }
+            onDoubleClick={ handleOnDoubleClick }
         />)
 
     const picker = ColorPickerContainer.useContainer();
 
-    function handleOnColorChange(event: SyntheticEvent) {
+    function handleOnDoubleClick(event: SyntheticEvent) {
         event.preventDefault();
-        if (event.target instanceof HTMLDivElement) {
+        isDoubleClicked = !isDoubleClicked;
+
+        if (!isDoubleClicked) {
+            return
+        }
+    };
+    
+    function handleOnMouseEnter(event: SyntheticEvent) {
+        event.preventDefault();
+
+        if (isDoubleClicked && event.target instanceof HTMLDivElement) {
             event.target.style.backgroundColor = ('white' ? picker.color : 'white')
         }
     };
 
-        return (
+    return (
         <>  
             <div className="intarsia-grid">
                 {cellArray}
